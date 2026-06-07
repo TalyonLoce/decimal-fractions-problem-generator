@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Интерактивный курс: Десятичные дроби</title>
+  <meta name="description" content="Интерактивный курс по математике для школьников: сложение, вычитание, умножение и деление десятичных дробей с автоматической генерацией примеров и проверкой решений.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <header class="header">
+    <h1 class="header__title">Интерактивный курс по математике</h1>
+    <p class="header__subtitle">Десятичные дроби: теория и практика с примерами</p>
+  </header>
+
+  <nav class="nav" aria-label="Выбор раздела курса">
+    <button class="nav__button nav__button--active" data-nav="add">Сложение</button>
+    <button class="nav__button" data-nav="sub">Вычитание</button>
+    <button class="nav__button" data-nav="mul">Умножение</button>
+    <button class="nav__button" data-nav="div">Деление</button>
+  </nav>
+
+  <main>
+    <section id="topic-add" class="topic topic--active" data-topic="add">
+      <div class="theory-card">
+        <h2 class="theory-card__title">Сложение десятичных дробей</h2>
+        <p class="theory-card__text">Чтобы сложить две десятичные дроби, нужно:</p>
+        <ul style="margin-left: 1.8rem; margin-bottom: 1rem;">
+          <li>Записать дроби в столбик, чтобы запятая была под запятой;</li>
+          <li>Выполнить сложение, не обращая внимания на запятые;</li>
+          <li>В результате поставить запятую под запятой.</li>
+        </ul>
+        <div class="theory-card__rule">Пример: 3,25 + 1,7 = 3,25 + 1,70 = 4,95</div>
+      </div>
+      <div class="interactive">
+        <div class="example">
+          <span class="example__expression" id="addExpression">—</span>
+        </div>
+        <div class="input-group">
+          <input type="text" id="addInput" class="input-group__field" placeholder="Введите ответ" autocomplete="off">
+          <button class="button button--check" data-check="add">Проверить</button>
+          <button class="button button--secondary" data-new="add">Новый пример</button>
+        </div>
+        <div id="addFeedback" class="feedback feedback--info">Напишите ответ и нажмите «Проверить»</div>
+      </div>
+    </section>
+
+    <!-- РАЗДЕЛ 2: ВЫЧИТАНИЕ -->
+    <section id="topic-sub" class="topic" data-topic="sub">
+      <div class="theory-card">
+        <h2 class="theory-card__title">Вычитание десятичных дробей</h2>
+        <p class="theory-card__text">Правила аналогичны сложению, но выполняется вычитание.</p>
+        <ul style="margin-left: 1.8rem; margin-bottom: 1rem;">
+          <li>Записать числа столбиком, запятая под запятой;</li>
+          <li>Вычесть, как целые числа, поставить запятую под запятой.</li>
+        </ul>
+        <div class="theory-card__rule">Пример: 8,45 – 2,3 = 8,45 – 2,30 = 6,15</div>
+      </div>
+      <div class="interactive">
+        <div class="example"><span class="example__expression" id="subExpression">—</span></div>
+        <div class="input-group">
+          <input type="text" id="subInput" class="input-group__field" placeholder="Введите ответ">
+          <button class="button button--check" data-check="sub">Проверить</button>
+          <button class="button button--secondary" data-new="sub">Новый пример</button>
+        </div>
+        <div id="subFeedback" class="feedback feedback--info">Введите разность и проверьте себя</div>
+      </div>
+    </section>
+
+    <!-- РАЗДЕЛ 3: УМНОЖЕНИЕ -->
+    <section id="topic-mul" class="topic" data-topic="mul">
+      <div class="theory-card">
+        <h2 class="theory-card__title">Умножение десятичных дробей</h2>
+        <p class="theory-card__text">Умножение десятичных дробей выполняется по правилу:</p>
+        <ul style="margin-left: 1.8rem; margin-bottom: 1rem;">
+          <li>Перемножить числа, не обращая внимания на запятые;</li>
+          <li>Отделить запятой справа столько цифр, сколько их после запятой в обоих множителях вместе.</li>
+        </ul>
+        <div class="theory-card__rule">Пример: 1,2 × 0,3 = 0,36 (всего 2 знака после запятой)</div>
+      </div>
+      <div class="interactive">
+        <div class="example"><span class="example__expression" id="mulExpression">—</span></div>
+        <div class="input-group">
+          <input type="text" id="mulInput" class="input-group__field" placeholder="Введите ответ">
+          <button class="button button--check" data-check="mul">Проверить</button>
+          <button class="button button--secondary" data-new="mul">Новый пример</button>
+        </div>
+        <div id="mulFeedback" class="feedback feedback--info">Умножайте внимательно, не забывайте про запятые</div>
+      </div>
+    </section>
+
+    <!-- РАЗДЕЛ 4: ДЕЛЕНИЕ -->
+    <section id="topic-div" class="topic" data-topic="div">
+      <div class="theory-card">
+        <h2 class="theory-card__title">Деление десятичных дробей</h2>
+        <p class="theory-card__text">Чтобы разделить десятичную дробь на десятичную:</p>
+        <ul style="margin-left: 1.8rem; margin-bottom: 1rem;">
+          <li>Разделить числа, не обращая внимания на запятые;</li>
+          <li>Если нули не занимались, отделить запятой справа столько цифр, сколько их после запятой в делимом минус сколько их после запятой в делителе.</li>
+        </ul>
+        <div class="theory-card__rule">Пример: 4,68 ÷ 0,9 => 468 ÷ 9 = 52 => 5,2 (2 знака в делимом минус 1 знак в делителе, в ответе 1 знак после запятой)</div>
+      </div>
+      <div class="interactive">
+        <div class="example"><span class="example__expression" id="divExpression">—</span></div>
+        <div class="input-group">
+          <input type="text" id="divInput" class="input-group__field" placeholder="Введите ответ">
+          <button class="button button--check" data-check="div">Проверить</button>
+          <button class="button button--secondary" data-new="div">Новый пример</button>
+        </div>
+        <div id="divFeedback" class="feedback feedback--info">Результат может быть округлён до сотых, вводите с точностью до 0,005</div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2026 Интерактивный учебный курс | Для школьников 5–6 классов | Генерация десятичных дробей</p>
+  </footer>
+</div>
+<script src="generator.js"></script>
+</body>
+</html>
